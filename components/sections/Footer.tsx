@@ -36,16 +36,15 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="relative bg-white border-t border-brand-cyan/30 pt-36 pb-24 md:pt-48 md:pb-36 min-h-[580px] lg:min-h-[640px] flex flex-col justify-between overflow-hidden">
-      {/* Section Background Image */}
+      {/* Section Background Image - Full uncropped corner-to-corner design */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <Image
           src="/each_section_bg/footer-section.png"
           alt="Footer Background"
           fill
           priority={false}
-          className="object-cover object-center opacity-85"
+          className="object-fill w-full h-full"
         />
-        <div className="absolute inset-0 bg-white/40" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

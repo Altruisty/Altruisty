@@ -36,16 +36,15 @@ export const WhyAltruisty: React.FC = () => {
 
   return (
     <section id="why" className="relative py-20 md:py-24 overflow-hidden bg-brand-ice/20">
-      {/* Section Background Image */}
+      {/* Section Background Image - Full uncropped corner-to-corner design */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <Image
           src="/each_section_bg/Why-Altruisty-Innovation.png"
           alt="Why Altruisty Innovation Background"
           fill
           priority={false}
-          className="object-cover object-center opacity-85"
+          className="object-fill w-full h-full"
         />
-        <div className="absolute inset-0 bg-white/45" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

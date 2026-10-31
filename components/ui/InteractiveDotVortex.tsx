@@ -12,7 +12,6 @@ interface Star {
   baseAlpha: number;
   twinkleSpeed: number;
   phase: number;
-  hasGlint: boolean;
 }
 
 export const InteractiveDotVortex: React.FC<{ className?: string }> = ({
@@ -56,42 +55,46 @@ export const InteractiveDotVortex: React.FC<{ className?: string }> = ({
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Luminous Brand Colors for Bright Shining Stars
+    // Brand color palette for the stars (matching logo and reference)
     const starColors = [
-      '#2F4A9F', // Deep Brand Blue
-      '#0284C7', // Sky Blue
-      '#72D0E3', // Signature Sky Cyan
-      '#38BDF8', // Luminous Cyan
-      '#00C8FF', // Radiant Electric Cyan
-      '#4A7DB8', // Mid Brand Blue
-      '#2563EB', // Electric Royal Blue
-      '#F59E0B', // Radiant Gold Sparkle
-      '#FFFFFF', // Pure Brilliant White
-      '#60A5FA', // Light Neon Blue
+      '#2F4A9F', // Deep Blue
+      '#4A7DB8', // Mid Blue
+      '#72D0E3', // Sky Cyan
+      '#3B82F6', // Vibrant Blue
+      '#72D0E3', // Cyan
+      '#F59E0B', // Warm Gold Accent
+      '#2F4A9F',
+      '#4A7DB8',
     ];
 
-    // Group stars in a prominent circular galaxy vortex in the center
+    // Group stars in a defined circular vortex in the center
     const stars: Star[] = [];
-    const totalRings = 24;
+    const totalRings = 22;
 
-    const minRadius = Math.min(width, height) * 0.12; // ~95px - 115px
-    const maxRadius = Math.min(width, height) * 0.44; // ~340px - 440px
+    // Minimum and maximum radius to create a distinct, centered circular formation
+    const minRadius = Math.min(width, height) * 0.12; // ~90px - 110px inner core
+    const maxRadius = Math.min(width, height) * 0.44; // ~340px - 440px outer perimeter
 
     for (let r = 0; r < totalRings; r++) {
       const progress = r / (totalRings - 1);
+      // Concentric circles grouped tightly from inner to outer boundary
       const orbitRadius = minRadius + progress * (maxRadius - minRadius);
-      const count = Math.floor(18 + progress * 42);
+      
+      // Star density increases with circumference to form a solid circular ring
+      const count = Math.floor(16 + progress * 40);
 
       for (let i = 0; i < count; i++) {
+        // Equal spacing around the circular perimeter with small natural variance
         const baseAngle = (i / count) * Math.PI * 2;
         const angle = baseAngle + (r % 2 === 0 ? 0.08 : -0.08);
+
+        // Circular orbital rotation speed (alternating subtle counter-twist)
         const angularSpeed = (0.0012 + (1 - progress) * 0.0014) * (r % 2 === 0 ? 1 : -0.85);
 
-        // Increased size for bright shining visibility: 3.4px to 7.2px
-        const size = 3.4 + Math.random() * 3.8;
+        // Micro star size: 1.8px to 3.8px
+        const size = 1.6 + Math.random() * 2.2;
         const color = starColors[Math.floor(Math.random() * starColors.length)];
-        const baseAlpha = 0.82 + (1 - progress * 0.2) * 0.18;
-        const hasGlint = Math.random() > 0.3; // 70% of stars have extended shining glint rays
+        const baseAlpha = 0.45 + (1 - progress * 0.3) * 0.5;
 
         stars.push({
           ring: r,
@@ -101,89 +104,37 @@ export const InteractiveDotVortex: React.FC<{ className?: string }> = ({
           size,
           color,
           baseAlpha,
-          twinkleSpeed: 1.8 + Math.random() * 2.6,
+          twinkleSpeed: 1.5 + Math.random() * 2,
           phase: Math.random() * Math.PI * 2,
-          hasGlint,
         });
       }
     }
 
-    // Draw bright shining 4-pointed sparkle star with luminous halo, glint & core: ✦
-    const drawShiningStar = (
+    // Draw delicate 4-pointed sparkle micro star: ✦
+    const drawMicroStar = (
       cx: number,
       cy: number,
       size: number,
       color: string,
-      alpha: number,
-      hasGlint: boolean
+      alpha: number
     ) => {
       ctx.save();
       ctx.translate(cx, cy);
-
-      const effectiveAlpha = Math.max(0, Math.min(1, alpha));
-
-      // 1. Soft Ambient Luminous Halo (Bright radiant glow around star)
-      ctx.beginPath();
-      ctx.arc(0, 0, size * 2.4, 0, Math.PI * 2);
       ctx.fillStyle = color;
-      ctx.globalAlpha = effectiveAlpha * 0.35;
-      ctx.fill();
+      ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
 
-      // 2. Extended Shining Glint Rays for prominent sparkles
-      if (hasGlint) {
-        ctx.beginPath();
-        const rayLength = size * 2.2;
-        const rayWidth = size * 0.28;
-        // Vertical flare
-        ctx.moveTo(0, -rayLength);
-        ctx.lineTo(rayWidth, 0);
-        ctx.lineTo(0, rayLength);
-        ctx.lineTo(-rayWidth, 0);
-        ctx.closePath();
-        // Horizontal flare
-        ctx.moveTo(-rayLength, 0);
-        ctx.lineTo(0, rayWidth);
-        ctx.lineTo(rayLength, 0);
-        ctx.lineTo(0, -rayWidth);
-        ctx.closePath();
-        ctx.fillStyle = color === '#FFFFFF' ? '#72D0E3' : color;
-        ctx.globalAlpha = effectiveAlpha * 0.65;
-        ctx.fill();
-
-        // Diagonal soft micro-flares for extra sparkle
-        const diagLength = size * 1.1;
-        const diagWidth = size * 0.18;
-        ctx.beginPath();
-        ctx.moveTo(-diagLength, -diagLength);
-        ctx.lineTo(0, -diagWidth);
-        ctx.lineTo(diagLength, -diagLength);
-        ctx.lineTo(diagWidth, 0);
-        ctx.lineTo(diagLength, diagLength);
-        ctx.lineTo(0, diagWidth);
-        ctx.lineTo(-diagLength, diagLength);
-        ctx.lineTo(-diagWidth, 0);
-        ctx.closePath();
-        ctx.fillStyle = '#FFFFFF';
-        ctx.globalAlpha = effectiveAlpha * 0.45;
-        ctx.fill();
-      }
-
-      // 3. Sharp 4-Pointed Sparkle Star Body
       ctx.beginPath();
       ctx.moveTo(0, -size);
       ctx.quadraticCurveTo(0, 0, size, 0);
       ctx.quadraticCurveTo(0, 0, 0, size);
       ctx.quadraticCurveTo(0, 0, -size, 0);
       ctx.quadraticCurveTo(0, 0, 0, -size);
-      ctx.fillStyle = color;
-      ctx.globalAlpha = effectiveAlpha;
       ctx.fill();
 
-      // 4. Bright Luminous White Core
+      // Tiny crisp center point
       ctx.beginPath();
-      ctx.arc(0, 0, size * 0.38, 0, Math.PI * 2);
+      ctx.arc(0, 0, size * 0.25, 0, Math.PI * 2);
       ctx.fillStyle = '#FFFFFF';
-      ctx.globalAlpha = Math.min(1, effectiveAlpha * 1.1);
       ctx.fill();
 
       ctx.restore();
@@ -193,8 +144,9 @@ export const InteractiveDotVortex: React.FC<{ className?: string }> = ({
     let globalRotation = 0;
 
     const render = () => {
-      time += 0.028;
+      time += 0.025;
 
+      // Mouse speed calculation
       const dxMouse = mouse.targetX - prevMouseX;
       const dyMouse = mouse.targetY - prevMouseY;
       const currentSpeed = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
@@ -202,26 +154,32 @@ export const InteractiveDotVortex: React.FC<{ className?: string }> = ({
       prevMouseX = mouse.targetX;
       prevMouseY = mouse.targetY;
 
+      // Smooth cursor lerp
       mouse.x += (mouse.targetX - mouse.x) * 0.07;
       mouse.y += (mouse.targetY - mouse.y) * 0.07;
 
       ctx.clearRect(0, 0, width, height);
 
-      // Centered circular vortex coordinates tracking cursor
+      // The circular star formation is grouped right in the center!
+      // Its center dynamically shifts according to cursor movement
       const centerX = width * 0.5 + (mouse.x - width * 0.5) * 0.14;
       const centerY = height * 0.48 + (mouse.y - height * 0.48) * 0.14;
 
-      const rotBoost = Math.min(mouse.speed * 0.0003, 0.0035);
-      globalRotation += 0.0011 + rotBoost;
+      // Dynamic rotation accelerates slightly when moving the cursor
+      const rotBoost = Math.min(mouse.speed * 0.0003, 0.003);
+      globalRotation += 0.001 + rotBoost;
 
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];
         star.angle += star.angularSpeed;
 
         const currentAngle = star.angle + globalRotation;
+        
+        // Exact concentric circle position
         let sx = centerX + Math.cos(currentAngle) * star.orbitRadius;
         let sy = centerY + Math.sin(currentAngle) * star.orbitRadius;
 
+        // Interaction: nearby stars deflect and follow cursor flow
         const dx = mouse.x - sx;
         const dy = mouse.y - sy;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -229,16 +187,16 @@ export const InteractiveDotVortex: React.FC<{ className?: string }> = ({
 
         if (dist < maxDist && dist > 1) {
           const factor = 1 - dist / maxDist;
-          const push = factor * 28;
+          const push = factor * 26;
           sx -= (dx / dist) * push;
           sy -= (dy / dist) * push;
         }
 
-        // Shining twinkle wave with high floor so stars remain bright
-        const twinkle = 0.78 + 0.32 * Math.sin(time * star.twinkleSpeed + star.phase);
+        // Smooth twinkling
+        const twinkle = 0.7 + 0.3 * Math.sin(time * star.twinkleSpeed + star.phase);
         const currentAlpha = star.baseAlpha * twinkle;
 
-        drawShiningStar(sx, sy, star.size, star.color, currentAlpha, star.hasGlint);
+        drawMicroStar(sx, sy, star.size, star.color, currentAlpha);
       }
 
       animationFrameId = requestAnimationFrame(render);

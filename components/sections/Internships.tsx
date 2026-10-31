@@ -22,7 +22,7 @@ export const Internships: React.FC = () => {
       {/* Section Background Image */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <Image
-          src="/each_section_bg/internships-section.png"
+          src="/each_section_bg/internship-section-bg.png"
           alt="Internships Background"
           fill
           priority={false}

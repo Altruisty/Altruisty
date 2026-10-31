@@ -1,0 +1,124 @@
+:root {
+  /* ==========================================================================
+     ALTRUISTY INNOVATION BRAND PALETTE (ONE-FILE EDIT)
+     Strictly sampled from the official Altruisty logo. Light theme only.
+     ========================================================================== */
+  --brand-deep: #2F4A9F;       /* Deep Blue ("A / L" side) */
+  --brand-mid: #4A7DB8;        /* Mid Blue ("TRU" transition) */
+  --brand-cyan: #72D0E3;       /* Sky Cyan ("ISTY" side) */
+  --brand-charcoal: #5B5B5B;   /* Charcoal Gray ("Innovation Pvt Ltd" / body text) */
+  --brand-ice: #F4F9FD;        /* Soft ice background */
+  --brand-sky: #E8F4FA;        /* Pale sky tint background */
+  --brand-white: #FFFFFF;      /* Clean White */
+
+  /* Gradients */
+  --brand-gradient: linear-gradient(90deg, #2F4A9F 0%, #4A7DB8 50%, #72D0E3 100%);
+  --brand-gradient-hover: linear-gradient(90deg, #263d83 0%, #3e6ea5 50%, #5dc0d4 100%);
+  --brand-gradient-subtle: linear-gradient(135deg, rgba(47, 74, 159, 0.08) 0%, rgba(74, 125, 184, 0.06) 50%, rgba(114, 208, 227, 0.1) 100%);
+  --brand-border-gradient: linear-gradient(135deg, rgba(47, 74, 159, 0.3) 0%, rgba(114, 208, 227, 0.4) 100%);
+
+  /* Shadows */
+  --shadow-blue-glow: 0 12px 30px rgba(47, 74, 159, 0.22);
+  --shadow-cyan-glow: 0 10px 25px rgba(114, 208, 227, 0.28);
+  --shadow-glass: 0 16px 40px -10px rgba(47, 74, 159, 0.07), 0 0 1px 1px rgba(114, 208, 227, 0.15);
+  --shadow-card-hover: 0 24px 50px -12px rgba(47, 74, 159, 0.14), 0 0 2px 1px rgba(114, 208, 227, 0.3);
+}
+
+/* Base Body & Reset */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  color: var(--brand-charcoal);
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Outfit / Urbanist */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), 'Urbanist', system-ui, sans-serif;
+  color: #1a2750;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(114, 208, 227, 0.22);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(244, 249, 253, 0.75) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(74, 125, 184, 0.16);
+  box-shadow: 0 14px 34px -10px rgba(47, 74, 159, 0.07);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(114, 208, 227, 0.55);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* Text Gradient Utilities */
+.text-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Animated Underline */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: var(--brand-gradient);
+  transition: width 0.3s ease;
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F9FD;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4A7DB8 0%, #72D0E3 100%);
+  border-radius: 9999px;
+  border: 2px solid #F4F9FD;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2F4A9F;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

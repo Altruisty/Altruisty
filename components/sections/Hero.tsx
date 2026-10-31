@@ -34,11 +34,8 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative min-h-[92vh] pt-32 pb-20 md:pt-40 md:pb-28 flex flex-col justify-center items-center overflow-hidden bg-white"
     >
-      {/* Interactive Cursor-Driven Radial Dot Vortex Background */}
+      {/* Interactive Cursor-Driven Radial Star Vortex Background */}
       <InteractiveDotVortex />
-
-      {/* Subtle radial focus vignette so text stays razor crisp */}
-      <div className="absolute inset-0 bg-radial-gradient from-white/30 via-white/70 to-white pointer-events-none z-0" />
 
       {/* Hero Foreground Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">

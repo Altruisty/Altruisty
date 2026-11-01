@@ -49,3 +49,4 @@ Desktop.ini
 
 # Debug
 .next-debug.log*
+/README.md

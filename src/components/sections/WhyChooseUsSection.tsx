@@ -16,8 +16,8 @@ export const WhyChooseUsSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Side Image Showcase */}
-          <div className="lg:col-span-5">
+          {/* Left Column: Side Image Showcase with smooth curtain reveal */}
+          <div className="lg:col-span-5 scroll-reveal-left">
             <div className="relative rounded-[36px] overflow-hidden border border-white/15 shadow-2xl h-80 sm:h-[450px]">
               <Image
                 src="/assets/img/choose-us-img.jpg"
@@ -37,8 +37,8 @@ export const WhyChooseUsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Title + 4 Pillars Grid */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Right Column: Title + 4 Pillars Grid with smooth reveal */}
+          <div className="lg:col-span-7 space-y-8 scroll-reveal-right">
             <div className="section-title mb-0">
               <h6 className="text-[#4DA8DA] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
                 Why Choose Us
@@ -51,10 +51,10 @@ export const WhyChooseUsSection: React.FC = () => {
 
             {/* 4 Pillars Counter Boxes */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-              {WHY_CHOOSE_DATA.map((item) => (
+              {WHY_CHOOSE_DATA.map((item, idx) => (
                 <div
                   key={item.id}
-                  className="rounded-3xl bg-white/5 border border-white/15 p-6 backdrop-blur-md hover:bg-white/10 hover:border-[#4DA8DA] transition-all duration-300 group"
+                  className={`rounded-3xl bg-white/5 border border-white/15 p-6 backdrop-blur-md hover:bg-white/10 hover:border-[#4DA8DA] transition-all duration-300 group scroll-reveal-scale delay-${(idx + 1) * 100}`}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-teko text-3xl font-bold text-[#4DA8DA]">

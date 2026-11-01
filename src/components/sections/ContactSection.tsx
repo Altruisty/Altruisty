@@ -47,9 +47,9 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-slate-50/70 border-t border-slate-100">
+    <section id="contact" className="py-20 md:py-28 bg-slate-50/70 border-t border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-title mb-12">
+        <div className="section-title mb-12 scroll-reveal">
           <h6 className="text-[#3B72AF] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
             Contact Us
           </h6>
@@ -63,7 +63,7 @@ export const ContactSection: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start font-sans">
           {/* Left Column: Official Contact Channels */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 scroll-reveal-left">
             <div className="rounded-[36px] bg-white p-8 border border-slate-200/90 shadow-sm space-y-6">
               <h3 className="font-teko uppercase text-2xl font-bold text-slate-900 border-b border-slate-100 pb-3">
                 {CONTACT_CONTENT.companyName}
@@ -172,7 +172,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Right Column: Direct Message Form */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 scroll-reveal-right">
             <div className="rounded-[36px] bg-white p-8 sm:p-10 border border-slate-200/90 shadow-sm">
               <h3 className="font-teko uppercase text-2xl sm:text-3xl font-bold text-slate-900 mb-1">
                 Send Us a Message

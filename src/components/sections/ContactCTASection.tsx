@@ -18,16 +18,16 @@ export const ContactCTASection: React.FC = () => {
   };
 
   return (
-    <section className="cta-section fix py-16 md:py-24 bg-white">
+    <section className="cta-section fix py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="cta-wrapper rounded-[36px] sm:rounded-[50px] bg-cover bg-center p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-8"
+          className="cta-wrapper rounded-[36px] sm:rounded-[50px] bg-cover bg-center p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-8 scroll-reveal"
           style={{ backgroundImage: "url('/assets/img/cta/cta-bg.jpg')" }}
         >
           {/* Brand dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/90 via-[#1B2E5A]/85 to-[#0F172A]/85 z-0" />
 
-          <div className="relative z-10 max-w-2xl space-y-4">
+          <div className="relative z-10 max-w-2xl space-y-4 scroll-reveal-left">
             <span className="text-xs font-bold uppercase tracking-widest text-[#4DA8DA] font-sans">
               {CONTACT_CTA_CONTENT.subheading}
             </span>
@@ -40,7 +40,7 @@ export const ContactCTASection: React.FC = () => {
             </p>
           </div>
 
-          <div className="relative z-10 flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
+          <div className="relative z-10 flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 scroll-reveal-right">
             <button
               type="button"
               onClick={() => handleScrollTo('contact')}

@@ -26,8 +26,8 @@ export const GallerySection: React.FC = () => {
   return (
     <section id="gallery" className="case-study-section-2 py-20 md:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title area matching case study from index-2.html */}
-        <div className="section-title text-center mb-10">
+        {/* Title Area matching template case study */}
+        <div className="section-title text-center mb-10 scroll-reveal">
           <h6 className="text-[#3B72AF] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
             Our Gallery
           </h6>
@@ -40,7 +40,7 @@ export const GallerySection: React.FC = () => {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 scroll-reveal">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -57,11 +57,11 @@ export const GallerySection: React.FC = () => {
           ))}
         </div>
 
-        {/* Exact case-study-box-items-2 Grid from index-2.html */}
+        {/* Case Study Grid with Correct Shape & Sized Arrow Icon */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, idx) => (
-            <div key={item.id} className="case-study-box-items-2 group">
-              <div className="thumb relative h-64 sm:h-72 rounded-[28px] overflow-hidden bg-slate-100">
+            <div key={item.id} className="case-study-box-items-2 group scroll-reveal-scale">
+              <div className="thumb relative h-64 sm:h-72 rounded-[28px] overflow-hidden bg-slate-100 shadow-sm">
                 <Image
                   src={galleryImages[idx % galleryImages.length]}
                   alt={item.title}
@@ -70,10 +70,24 @@ export const GallerySection: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                {/* Floating Circle Icon from template */}
-                <span className="icon w-12 h-12 rounded-full bg-white flex items-center justify-center absolute top-4 right-4 shadow-md group-hover:bg-[#4DA8DA] transition-colors">
-                  <img src="/assets/img/icon/12.svg" alt="View" className="w-4 h-4 brightness-0 group-hover:brightness-200 transition-all" />
-                </span>
+                {/* Floating Circle Button with Correct Shape Arrow Icon */}
+                <div
+                  className="icon w-12 h-12 rounded-full bg-white flex items-center justify-center absolute top-4 right-4 shadow-lg group-hover:bg-[#4DA8DA] transition-all duration-300 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <svg
+                    className="w-5 h-5 text-slate-900 group-hover:text-white transition-all transform group-hover:scale-110"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </div>
               </div>
 
               <div className="content mt-4 space-y-1">

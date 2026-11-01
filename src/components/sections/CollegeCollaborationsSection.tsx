@@ -13,9 +13,9 @@ export const CollegeCollaborationsSection: React.FC = () => {
   ];
 
   return (
-    <section id="college-events" className="py-20 md:py-28 bg-slate-50/70 border-t border-slate-100">
+    <section id="college-events" className="py-20 md:py-28 bg-slate-50/70 border-t border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-title mb-10">
+        <div className="section-title mb-10 scroll-reveal">
           <h6 className="text-[#3B72AF] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
             College Event Collaborations & Past Events
           </h6>
@@ -30,16 +30,16 @@ export const CollegeCollaborationsSection: React.FC = () => {
 
         {/* 5 Support Tracks Grid */}
         <div className="mt-12">
-          <h3 className="font-teko uppercase font-bold text-3xl sm:text-4xl text-slate-900 mb-8 flex items-center gap-2">
+          <h3 className="font-teko uppercase font-bold text-3xl sm:text-4xl text-slate-900 mb-8 flex items-center gap-2 scroll-reveal">
             <GraduationCap className="w-6 h-6 text-[#233877]" />
             <span>How We Support College Events</span>
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COLLEGE_COLLABORATIONS_CONTENT.supportCategories.map((item) => (
+            {COLLEGE_COLLABORATIONS_CONTENT.supportCategories.map((item, idx) => (
               <div
                 key={item.number}
-                className="rounded-3xl bg-white p-7 border border-slate-200/90 shadow-2xs hover:border-[#3B72AF] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+                className={`rounded-3xl bg-white p-7 border border-slate-200/90 shadow-2xs hover:border-[#3B72AF] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group scroll-reveal-scale delay-${((idx % 3) + 1) * 100}`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -66,8 +66,8 @@ export const CollegeCollaborationsSection: React.FC = () => {
               </div>
             ))}
 
-            {/* 6th Card: Symposium / Hackathon Direct Callout */}
-            <div className="rounded-3xl bg-gradient-to-br from-[#1B2E5A] to-[#233877] text-white p-7 shadow-lg flex flex-col justify-between">
+            {/* 6th Card: Direct Callout */}
+            <div className="rounded-3xl bg-gradient-to-br from-[#1B2E5A] to-[#233877] text-white p-7 shadow-lg flex flex-col justify-between scroll-reveal-scale delay-300">
               <div>
                 <span className="text-xs font-bold uppercase tracking-widest text-[#BAE6FD] px-3 py-1 rounded-full bg-white/10 inline-block mb-3 font-sans">
                   For Student Bodies & Faculties
@@ -76,7 +76,7 @@ export const CollegeCollaborationsSection: React.FC = () => {
                   Organizing a Technical Symposium?
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-200 font-sans leading-relaxed">
-                  Hackathons, project expos, startup challenges, and symposiums — partner with Altruisty Innovation for jury panels, prizes, and direct mentorship.
+                  Hackathons, project expos, startup challenges, and symposiums &mdash; partner with Altruisty Innovation for jury panels, prizes, and direct mentorship.
                 </p>
               </div>
 
@@ -94,7 +94,7 @@ export const CollegeCollaborationsSection: React.FC = () => {
         </div>
 
         {/* Past Collaborations Visual Preview */}
-        <div className="mt-16 pt-12 border-t border-slate-200">
+        <div className="mt-16 pt-12 border-t border-slate-200 scroll-reveal">
           <h3 className="font-teko uppercase font-bold text-3xl sm:text-4xl text-slate-900 mb-6 flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-[#4DA8DA]" />
             <span>Past Collaborations & Campus Events</span>
@@ -102,7 +102,7 @@ export const CollegeCollaborationsSection: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {eventPhotos.map((ep, idx) => (
-              <div key={idx} className="case-study-box-items-2 group">
+              <div key={idx} className={`case-study-box-items-2 group scroll-reveal-scale delay-${(idx + 1) * 100}`}>
                 <div className="thumb relative h-60 rounded-[28px] overflow-hidden bg-slate-100">
                   <Image
                     src={ep.img}

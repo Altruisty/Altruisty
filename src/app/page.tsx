@@ -12,10 +12,22 @@ import { InternshipsSection } from '@/components/sections/InternshipsSection';
 import { InternshipRegistrationSection } from '@/components/sections/InternshipRegistrationSection';
 import { ContactCTASection } from '@/components/sections/ContactCTASection';
 import { ContactSection } from '@/components/sections/ContactSection';
+import { ScrollObserver } from '@/components/ui/ScrollObserver';
+import { Preloader } from '@/components/ui/Preloader';
+import { SmoothScroll } from '@/components/ui/SmoothScroll';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-slate-900">
+      {/* 00. Brand Preloader with Letter Flip and Parting Shutter Animation */}
+      <Preloader />
+
+      {/* 00. Slow, Silky Smooth Momentum Inertia Scrolling (Template ScrollSmoother) */}
+      <SmoothScroll />
+
+      {/* Scroll Trigger Observation Engine */}
+      <ScrollObserver />
+
       {/* Navigation Bar */}
       <Navbar />
 
@@ -36,13 +48,13 @@ export default function Home() {
         {/* 05. Our Gallery */}
         <GallerySection />
 
-        {/* 06. Our Clients */}
+        {/* 06. Our Clients (with Infinite Moving Logo Marquee) */}
         <ClientsSection />
 
         {/* 07. Our Partners */}
         <PartnersSection />
 
-        {/* 08. College Event Collaborations */}
+        {/* 08. College Event Collaborations / Past Events */}
         <CollegeCollaborationsSection />
 
         {/* 09. Internships */}
@@ -58,7 +70,7 @@ export default function Home() {
         <ContactSection />
       </main>
 
-      {/* 13. Footer */}
+      {/* 13. Footer (Exact Design from index-3.html with Colossal Brand Name) */}
       <Footer />
     </div>
   );

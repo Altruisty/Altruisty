@@ -21,7 +21,7 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="about-section fix py-24 md:py-32 my-8 md:my-16 mx-3 sm:mx-6 lg:mx-8 rounded-[36px] sm:rounded-[50px] lg:rounded-[60px] bg-cover bg-center overflow-hidden relative shadow-2xl"
+      className="about-section fix py-24 md:py-32 my-8 md:my-16 mx-3 sm:mx-6 lg:mx-8 rounded-[36px] sm:rounded-[50px] lg:rounded-[60px] bg-cover bg-center overflow-hidden relative shadow-2xl scroll-reveal"
       style={{ backgroundImage: "url('/assets/img/about/about-bg-1.jpg')" }}
     >
       {/* Brand Dark Overlay */}
@@ -30,7 +30,7 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="about-wrapper">
           {/* Header Bar */}
-          <div className="section-title-area flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-white/15">
+          <div className="section-title-area flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-white/15 scroll-reveal">
             <div className="section-title mb-0">
               <h6 className="text-[#4DA8DA] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
                 About Us
@@ -59,7 +59,7 @@ export const AboutSection: React.FC = () => {
           {/* Main 2-Column Row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mt-12 items-center">
             {/* Left Column: Mission, Vision, Approach Lists */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 scroll-reveal-left">
               <div className="about-content space-y-8">
                 {/* 01. Mission */}
                 <div className="flex items-start gap-5 group">
@@ -121,7 +121,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Right Column: Staggered Image Showcase from template */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 scroll-reveal-right">
               <div className="about-image-items">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
                   {/* First item: Image + Paragraph */}

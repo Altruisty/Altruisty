@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PARTNERS_CONTENT } from '@/data/content';
-import { Building2, School, Rocket, Users, Phone, ArrowUpRight } from 'lucide-react';
+import { Building2, School, Rocket, Users, Phone } from 'lucide-react';
 
 export const PartnersSection: React.FC = () => {
   const partnerTypes = [
@@ -29,9 +29,9 @@ export const PartnersSection: React.FC = () => {
   ];
 
   return (
-    <section id="partners" className="py-20 md:py-28 bg-white border-t border-slate-100">
+    <section id="partners" className="py-20 md:py-28 bg-white border-t border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-title text-center mb-12">
+        <div className="section-title text-center mb-14 scroll-reveal">
           <h6 className="text-[#3B72AF] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
             Our Partners
           </h6>
@@ -48,7 +48,7 @@ export const PartnersSection: React.FC = () => {
           {partnerTypes.map((pt, idx) => (
             <div
               key={idx}
-              className="rounded-3xl bg-slate-50/70 p-7 border border-slate-200/80 hover:bg-white hover:border-[#3B72AF] hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
+              className={`rounded-3xl bg-slate-50/70 p-7 border border-slate-200/80 hover:bg-white hover:border-[#3B72AF] hover:shadow-lg transition-all duration-300 group flex flex-col justify-between scroll-reveal-scale delay-${(idx + 1) * 100}`}
             >
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-5 shadow-2xs group-hover:scale-105 transition-transform">
@@ -70,7 +70,7 @@ export const PartnersSection: React.FC = () => {
         </div>
 
         {/* Interested in Partnering CTA Box with Template Button */}
-        <div className="rounded-[36px] bg-gradient-to-r from-[#1B2E5A] via-[#233877] to-[#3B72AF] text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        <div className="rounded-[36px] bg-gradient-to-r from-[#1B2E5A] via-[#233877] to-[#3B72AF] text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden scroll-reveal">
           <div className="absolute right-0 top-0 w-80 h-80 bg-[#4DA8DA]/20 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">

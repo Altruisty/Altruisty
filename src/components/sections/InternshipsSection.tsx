@@ -28,9 +28,9 @@ export const InternshipsSection: React.FC = () => {
   };
 
   return (
-    <section id="internships" className="py-20 md:py-28 bg-white border-t border-slate-100">
+    <section id="internships" className="py-20 md:py-28 bg-white border-t border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-title-area flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        <div className="section-title-area flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 scroll-reveal">
           <div className="section-title mb-0">
             <h6 className="text-[#3B72AF] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
               Internships Program
@@ -59,7 +59,7 @@ export const InternshipsSection: React.FC = () => {
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center gap-2 mb-8 scroll-reveal">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -82,7 +82,7 @@ export const InternshipsSection: React.FC = () => {
             <div
               key={domain.id}
               onClick={handleApplyClick}
-              className="group cursor-pointer rounded-3xl bg-slate-50/70 p-6 border border-slate-200/80 hover:bg-white hover:border-[#3B72AF] hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className={`group cursor-pointer rounded-3xl bg-slate-50/70 p-6 border border-slate-200/80 hover:bg-white hover:border-[#3B72AF] hover:shadow-lg transition-all duration-300 flex flex-col justify-between scroll-reveal-scale delay-${((idx % 4) + 1) * 100}`}
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -109,7 +109,7 @@ export const InternshipsSection: React.FC = () => {
         </div>
 
         {/* Why Apply for an Internship? */}
-        <div className="rounded-[36px] bg-gradient-to-br from-[#F0F7FB] via-white to-slate-50 p-8 sm:p-12 border border-[#BAE6FD] shadow-md">
+        <div className="rounded-[36px] bg-gradient-to-br from-[#F0F7FB] via-white to-slate-50 p-8 sm:p-12 border border-[#BAE6FD] shadow-md scroll-reveal">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#233877] px-3 py-1 rounded-full bg-[#EBF5FA] border border-[#BAE6FD] inline-flex items-center gap-1.5 mb-3 font-sans">
               <Sparkles className="w-3.5 h-3.5 text-[#3B72AF]" />

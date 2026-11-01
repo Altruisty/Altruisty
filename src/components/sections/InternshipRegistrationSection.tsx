@@ -92,9 +92,9 @@ export const InternshipRegistrationSection: React.FC = () => {
   };
 
   return (
-    <section id="register" className="py-20 md:py-28 bg-slate-50/70 border-t border-slate-100 relative">
+    <section id="register" className="py-20 md:py-28 bg-slate-50/70 border-t border-slate-100 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-title text-center mb-10">
+        <div className="section-title text-center mb-10 scroll-reveal">
           <h6 className="text-[#3B72AF] font-teko uppercase text-xl tracking-widest font-semibold block mb-2">
             Registration
           </h6>
@@ -106,7 +106,7 @@ export const InternshipRegistrationSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="rounded-[36px] bg-white border border-slate-200/90 shadow-xl p-6 sm:p-10 md:p-12 relative overflow-hidden">
+        <div className="rounded-[36px] bg-white border border-slate-200/90 shadow-xl p-6 sm:p-10 md:p-12 relative overflow-hidden scroll-reveal-scale">
           {isSubmitted ? (
             /* Success confirmation card */
             <div className="text-center py-8 space-y-6">
